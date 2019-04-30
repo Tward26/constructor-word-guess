@@ -5,11 +5,9 @@ function Letter (char) {
 
 Letter.prototype.toString = function(){
     if(this.guessed) {
-        console.log(this.char);
         return this.char;
     }
     else {
-        console.log("_");
         return "_";
     } 
 }
