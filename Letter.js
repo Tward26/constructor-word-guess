@@ -13,8 +13,11 @@ Letter.prototype.toString = function(){
 }
 
 Letter.prototype.guessCheck = function(guess){
-    if(guess === this.char) return this.guessed = true;
-    else return;
+    if(guess === this.char){
+        this.guessed = true;
+        return true;
+    }
+    else return false;;
 }
 
 module.exports = Letter;

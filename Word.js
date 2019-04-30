@@ -15,7 +15,7 @@ Word.prototype.toString = function () {
 
 Word.prototype.guess = function (char) {
     this.wordArr.forEach(ele => {
-        ele.guessCheck(char);
+        ele.guessCheck(char.toLowerCase());
     });
 }
 
