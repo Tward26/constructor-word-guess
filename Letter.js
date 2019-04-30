@@ -1,6 +1,9 @@
 function Letter (char) {
     this.char = char;
     this.guessed = false;
+    if(this.char === " "){
+        this.guessed = true;
+    }
 }
 
 Letter.prototype.toString = function(){

@@ -6,10 +6,12 @@ var computerChoice;
 let wordList = [];
 let usedWords = [];
 
-const word1 = new Word("testo");
-const word2 = new Word("demo");
-const word3 = new Word("longword");
-wordList.push(word1, word2, word3);
+const word1 = new Word("jurassic park");
+const word2 = new Word("star wars");
+const word3 = new Word("avengers");
+const word4 = new Word("akira");
+const word5 = new Word("wizards");
+wordList.push(word1, word2, word3, word4, word5);
 
 function randomNoRepeat(arr) {
     if (arr.length === 0) {
@@ -60,7 +62,7 @@ function wordGuessPrompt() {
             console.log("ALL WORDS DONE!!!"); 
         }
         else{
-        console.log("\nAll out of guesses! next word");
+        console.log("\nAll out of guesses! Next word!");
         guesses = 10;
         randomNoRepeat(wordList);
         console.log("\n" + computerChoice.toString() + "\n");
