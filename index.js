@@ -1,4 +1,5 @@
 const Word = require("./Word.js");
+const chalk = require("chalk");
 const inquirer = require("inquirer");
 let guesses = 10;
 var computerChoice;
@@ -6,12 +7,7 @@ var computerChoice;
 let wordList = [];
 let usedWords = [];
 
-const word1 = new Word("jurassic park");
-const word2 = new Word("star wars");
-const word3 = new Word("avengers");
-const word4 = new Word("akira");
-const word5 = new Word("wizards");
-wordList.push(word1, word2, word3, word4, word5);
+wordList.push(new Word("jurassic park"), new Word("star wars"), new Word("avengers"),new Word("akira"),  new Word("wizards"));
 
 function randomNoRepeat(arr) {
     if (arr.length === 0) {
@@ -44,12 +40,12 @@ function wordGuessPrompt() {
             computerChoice.guess(response.letter)
             if (computerChoice.toString().indexOf(response.letter) !== -1) {
                 console.log("\n" + computerChoice.toString() + "\n");
-                console.log("\nCORRECT!!!\n");
+                console.log(chalk.green("\nCORRECT!!!\n"));
                 wordGuessPrompt();
             }
             else {
                 console.log("\n" + computerChoice.toString() + "\n");
-                console.log("\nINCORRECT!!!");
+                console.log(chalk.red("\nINCORRECT!!!"));
                 guesses--;
                 console.log(`\n${guesses} guesses remaining!!!\n`);
                 wordGuessPrompt();
