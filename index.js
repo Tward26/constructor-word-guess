@@ -38,7 +38,7 @@ function wordGuessPrompt() {
             }
         ]).then(function (response) {
             computerChoice.guess(response.letter)
-            if (computerChoice.toString().indexOf(response.letter) !== -1) {
+            if (computerChoice.toString().indexOf(response.letter.toLowerCase()) !== -1) {
                 console.log("\n" + computerChoice.toString() + "\n");
                 console.log(chalk.green("\nCORRECT!!!\n"));
                 wordGuessPrompt();
@@ -52,25 +52,18 @@ function wordGuessPrompt() {
             }
         });
     }
+    else if(wordList.length === 0){
+        console.log("GAME OVER!!!"); 
+        console.log("ALL WORDS DONE!!!"); 
+    }
     else if(guesses === 0){
-        if(wordList.length === 0){
-            console.log("GAME OVER!!!"); 
-            console.log("ALL WORDS DONE!!!"); 
-        }
-        else{
         console.log("\nAll out of guesses! Next word!");
         guesses = 10;
         randomNoRepeat(wordList);
         console.log("\n" + computerChoice.toString() + "\n");
         wordGuessPrompt();
         }
-    }
-    else {
-        if(wordList.length === 0){
-            console.log("GAME OVER!!!"); 
-            console.log("ALL WORDS DONE!!!"); 
-        }
-        else{
+    else{
         console.log("\nYou got it right! next word");
         guesses = 10;
         randomNoRepeat(wordList);
@@ -78,10 +71,6 @@ function wordGuessPrompt() {
         wordGuessPrompt();
         }
     }
-
-}
-
-
 
 //game functionality
 randomNoRepeat(wordList);
